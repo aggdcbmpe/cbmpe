@@ -533,57 +533,50 @@
         const subSetoresMap = {
             'COMANDO GERAL': ['SUBCOMANDO GERAL', 'GCG', 'CI', 'CPO', 'AECI', 'CCS'],
             'SUBCOMANDO GERAL': ['DGO', 'DGA', 'GSG', 'AJG', 'CPP'],
-            'GCG': ['Chefia', 'Secretaria e Apoio Administrativo - SAAdm', 'Assessoria Jurídica - AJ', 'Assessoria de Relações Institucionais'],
-            'AECI': ['Chefia', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Planejamento de Controle Interno - DPCI'],
-            'CPO': ['Presidência', 'Secretaria da Comissão de Promoção de Oficiais - SCPO', 'Membros'],
-            'CCS': ['Chefia', 'Secretaria e Apoio Administrativo - SAAdm', 'Seção de Ações Preventivas - SAP', 'Seção de Impressa e Jornalismo - SIJ', 'Seção de Marketing e Relações Públicas - SMRP', 'Seção de Cerimonial e Eventos - SCE'],
-            'CI': ['Chefia', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Inteligência - DI', 'Divisão de Planejamento e Análise de Risco - DPAR'],
-
-            'GSG': ['Chefia', 'Secretaria e Apoio Administrativo - SAAdm', 'Assessoria de Atividades Técnicas - AAT', 'Assessoria de Gestão e Governança de Dados - AGGD'],
-            'DIESP': ['Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Secretaria da Comissão Interna de Atividades Técnicas - SCIATec', 'Divisão de Planejamento de Operações - DPO', 'Divisão de Normatização e Doutrina - DND', 'Divisão de Isenção e Restituição - DIR', 'Divisão de Atendimento ao Público - DAP', 'Divisão de Projetos Contra Incêndio e Pânico - DPCIP'],
-            'AJG': ['Chefia', 'Secretaria', 'Divisão de Protocolo, Publicação e Arquivo', 'Divisão Administrativa - DA'],
-            'CPP': ['Presidência', 'Secretaria da Comissão de Promoção de Praças - SCPP', 'Membros'],
-
-            'DGO': ['DIM', 'DINTER I', 'DINTER II', 'DIESP', 'Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Planejamento de Operações - DPO', 'Divisão de Apoio Operacional - DAO', 'Divisão de Coordenação Operacional - DCO'],
-
-            'DIM': ['GBI', 'GBAPH', 'GBS', 'GBMar', 'CAT/RMR', 'Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Planejamento de Operações - DPO', 'Divisão de Resposta a Desastres - DRD'],
-            'GBI': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - Div. Op.', '↳ 1ª SBI/GBI (Jaboatão dos Guararapes)', '↳ 2ª SBI/GBI (Complexo QCG)', '↳ 3ª SBI/GBI (SUAPE)', '↳ 4ª SBI/GBI (AENA)', '↳ SBFN/GBI (Fernando de Noronha)', 'Divisão Administrativa - DA'],
-            'GBAPH': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - Div. Op.', '↳ 1ª SBAPH/GBAPH (Olinda)', '↳ 2ª SBAPH/GBAPH (Igarassu)', '↳ 3ª SBAPH/GBAPH (São Lourenço da Mata)', '↳ 4ª SBAPH/GBAPH (Motorresgate - Sede)', 'Divisão Administrativa - DA'],
-            'GBS': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - Div. Op.', '↳ 1ª SBS/GBS (Abreu e Lima)', '↳ 2ª SBS/GBS (Canil)', '↳ 3ª SBS/GBS (Mergulho)', '↳ 4ª SBS/GBS (Produtos Perigosos e Incêndio Florestais)', '↳ 5ª SBS/GBS (Respostas a Desastres)', 'Divisão Administrativa - DA'],
-            'GBMar': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - Div. Op.', '↳ 1ª SBSA/GBMar (Jaboatão dos Guararapes)', '↳ 2ª SBSA/GBMar (Jaboatão dos Guararapes)', 'Divisão Administrativa - DA'],
-            'CAT/RMR': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Serviços Técnicos - DSTec', '↳ 1ª SATec', '↳ 2ª SATec', '↳ 3ª SATec', '↳ 4ª SATec', 'Divisão Administrativa - DA'],
-
-            'DINTER I': ['1º GB', '2º GB', '6º GB', '7º GB', 'CAT/ZM', 'CAT/AG', 'Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Planejamento de Operações - DPO', 'Divisão de Resposta Operacional - DRD'],
-            '1º GB': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/1º GB (Vitória de Santo Antão)', '↳ 2ª SB/1º GB (Palmares)', '↳ 3ª SB/1º GB (Gravatá)', 'Divisão Administrativa - DA'],
-            '2º GB': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DivOP', '↳ 1ª SB/2º GB (Caruaru)', '↳ 2ª SB/2º GB (Bezerros)', '↳ 3ª SB/2º GB (Belo Jardim)', '↳ 4ª SB/2º GB (Bonito)', '↳ 5ª SB/2º GB (Toritama)', '↳ 6ª SB/2º GB (Santa Cruz do Capibaribe)', '↳ 7ª SB/2º GB (Mergulho ZM e AG)', 'Divisão Administrativa - DA'],
-            '6º GB': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/6º GB (Garanhuns)', '↳ 2ª SB/6º GB (Bom Conselho)', 'Divisão Administrativa - DA'],
-            '7º GB': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/7º GB (Carpina)', '↳ 2ª SB/7º GB (Goiana)', '↳ 3ª SB/7º GB (Macaparana)', '↳ 4ª SB/7º GB (Surubim)', 'Divisão Administrativa - DA'],
-            'CAT/ZM': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Serviços Técnicos - DSTec', '↳ 1ª SATec (Carpina)', '↳ 2ª SATec (Goiana)', '↳ 3ª SATec (Vitória de Santo Antão)', 'Divisão Administrativa - DA'],
-            'CAT/AG': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Serviços Técnicos - DSTec', '↳ 1ª SATec (Caruaru)', '↳ 2ª SATec (Garanhuns)', '↳ 3ª SATec (Belo Jardim)', '↳ 4ª SATec (Toritama)', 'Divisão Administrativa - DA'],
-
-            'DINTER II': ['3º GB', '4º GB', '5º GB', '9º GB', 'CAT/SE', 'Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Planejamento de Operações - DPO', 'Divisão de Resposta Operacional - DRD'],
-            '3º GB': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/3º GB (Serra Talhada)', '↳ 2ª SB/3º GB (Afogados da Ingazeira)', '↳ 3ª SB/3º GB (São José do Egito)', '↳ 4ª SB/3º GB (Petrolândia)', 'Divisão Administrativa - DA'],
-            '4º GB': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/4º GB (Petrolina)', '↳ 2ª SB/4º GB (Santa Maria da Boa Vista)', '↳ 3ª SB/4º GB (Mergulho SE)', 'Divisão Administrativa - DA'],
-            '5º GB': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/5º GB (Salgueiro)', '↳ 2ª SB/5º GB (São José Belmonte)', '↳ 3ª SB/5º GB (Araripina)', '↳ 4ª SB/5º GB (Ouricuri)', 'Divisão Administrativa - DA'],
-            '9º GB': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/9º GB (Arcoverde)', '↳ 2ª SB/9º GB (Pesqueira)', '↳ 3ª SB/9º GB (Custódia)', 'Divisão Administrativa - DA'],
-            'CAT/SE': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Planejamento e Serviços Técnicos', '↳ 1ª SATec (Salgueiro)', '↳ 2ª SATec (Petrolina)', '↳ 3ª SATec (Serra Talhada)', '↳ 4ª SATec (Arcoverde)', '↳ 5ª SATec (Araripina)', 'Divisão Administrativa - DA'],
-
-            'DGA': ['DGP', 'DVP', 'DJD', 'DF', 'DAS', 'DTIC', 'DLOG', 'DEIP', 'DPLAG', 'Diretoria', 'Secretaria e Apoio Administrativo - SAAdm'],
-            'DPLAG': ['Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Planejamento e Gestão Estratégica - DPGE', 'Divisão Projetos e Captação de Recursos - DPCR', 'Divisão de Convênios e Acordo de Cooperação - DCAC', 'Divisão de Tributação e Orçamento - DTO'],
-            'DGP': ['Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Ativos - DA', 'Divisão de Direitos - DDIr', 'Divisão de Movimentação e Controle de Pessoal - DMCP', 'Divisão de Normatização e Programas - DNP'],
-            'DAS': ['Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Programas Sociais - DPS', 'Divisão Administrativa'],
-            'DJD': ['Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Planejamento de Justiça e Disciplina - DPJD', 'Divisão de Justiça e Disciplina - Div. JD'],
-            'DVP': ['Diretoria', 'Divisão de Transferência para Reserva e Reformas - DTRR', 'Divisão de Inativos - DI', 'Divisão de Direitos'],
-            'DTIC': ['Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Projetos - DP', 'Divisão de Coordenação Técnica - DCT'],
-            'DLOG': ['CMAN', 'CINT', 'CEAO', 'Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Planejamento Logístico - DPL', 'Divisão de Gestão de Contratos - DGC', 'Divisão de Gestão de Patrimônio - DGPat', 'Divisão de Gestão de Transporte e Combustível - DGTC', 'Divisão de Controle de Inquéritos Administrativos e Logísticos - DCIAL', 'Divisão de Compras e Serviços - DCS'],
-            'DF': ['Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Planejamento e Administração Financeira e Orçamentária', 'Divisão de Prestação de Contas', 'Divisão de Tesouraria Geral', 'Divisão de Controle Orçamentário e Financeiro'],
-            'DEIP': ['ABMG', 'CEFD', 'Diretoria', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Ensino e Pesquisa - DEP', 'Divisão de Admissão, Credenciamento e Fiscalização - DACF'],
-
-            'CMAN': ['Chefia', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Gestão de Manutenção - DGM', 'Divisão Administrativa - DA'],
-            'CINT': ['Chefia', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Gestão de Suprimentos - DGS'],
-            'CEAO': ['Chefia', 'Secretaria e Apoio Administrativo - SAAdm', 'Divisão de Projetos - DP', 'Divisão Administrativa - DA'],
-            'ABMG': ['Comando', 'Subcomando', 'Secretaria e Apoio do Comando - SAC', 'Divisão de Ensino - DE', 'Corpo de Alunos Oficiais', 'Corpo de Alunos Praças', 'Divisão Administrativa'],
-            'CEFD': ['Chefia', 'Secretaria e Apoio Administrativo - SAAdm', 'Seção de Treinamento Físico']
+            'GCG': ['↳ Chefia', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Assessoria Jurídica - AJ', '↳ Assessoria de Relações Institucionais'],
+            'AECI': ['↳ Chefia', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Planejamento de Controle Interno - DPCI'],
+            'CPO': ['↳ Presidência', '↳ Secretaria da Comissão de Promoção de Oficiais - SCPO', '↳ Membros'],
+            'CCS': ['↳ Chefia', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Seção de Ações Preventivas - SAP', '↳ Seção de Impressa e Jornalismo - SIJ', '↳ Seção de Marketing e Relações Públicas - SMRP', '↳ Seção de Cerimonial e Eventos - SCE'],
+            'CI': ['↳ Chefia', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Inteligência - DI', '↳ Divisão de Planejamento e Análise de Risco - DPAR'],
+            'GSG': ['↳ Chefia', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Assessoria de Atividades Técnicas - AAT', '↳ Assessoria de Gestão e Governança de Dados - AGGD'],
+            'DIESP': ['↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Secretaria da Comissão Interna de Atividades Técnicas - SCIATec', '↳ Divisão de Planejamento de Operações - DPO', '↳ Divisão de Normatização e Doutrina - DND', '↳ Divisão de Isenção e Restituição - DIR', '↳ Divisão de Atendimento ao Público - DAP', '↳ Divisão de Projetos Contra Incêndio e Pânico - DPCIP'],
+            'AJG': ['↳ Chefia', '↳ Secretaria', '↳ Divisão de Protocolo, Publicação e Arquivo', '↳ Divisão Administrativa - DA'],
+            'CPP': ['↳ Presidência', '↳ Secretaria da Comissão de Promoção de Praças - SCPP', '↳ Membros'],
+            'DGO': ['DIM', 'DINTER I', 'DINTER II', 'DIESP', '↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Planejamento de Operações - DPO', '↳ Divisão de Apoio Operacional - DAO', '↳ Divisão de Coordenação Operacional - DCO'],
+            'DIM': ['GBI', 'GBAPH', 'GBS', 'GBMar', 'CAT/RMR', '↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Planejamento de Operações - DPO', '↳ Divisão de Resposta a Desastres - DRD'],
+            'GBI': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - Div. Op.', '↳ 1ª SBI/GBI (Jaboatão dos Guararapes)', '↳ 2ª SBI/GBI (Complexo QCG)', '↳ 3ª SBI/GBI (SUAPE)', '↳ 4ª SBI/GBI (AENA)', '↳ SBFN/GBI (Fernando de Noronha)', '↳ Divisão Administrativa - DA'],
+            'GBAPH': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - Div. Op.', '↳ 1ª SBAPH/GBAPH (Olinda)', '↳ 2ª SBAPH/GBAPH (Igarassu)', '↳ 3ª SBAPH/GBAPH (São Lourenço da Mata)', '↳ 4ª SBAPH/GBAPH (Motorresgate - Sede)', '↳ Divisão Administrativa - DA'],
+            'GBS': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - Div. Op.', '↳ 1ª SBS/GBS (Abreu e Lima)', '↳ 2ª SBS/GBS (Canil)', '↳ 3ª SBS/GBS (Mergulho)', '↳ 4ª SBS/GBS (Produtos Perigosos e Incêndio Florestais)', '↳ 5ª SBS/GBS (Respostas a Desastres)', '↳ Divisão Administrativa - DA'],
+            'GBMar': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - Div. Op.', '↳ 1ª SBSA/GBMar (Jaboatão dos Guararapes)', '↳ 2ª SBSA/GBMar (Jaboatão dos Guararapes)', '↳ Divisão Administrativa - DA'],
+            'CAT/RMR': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', '↳ Divisão de Serviços Técnicos - DSTec', '↳ 1ª SATec', '↳ 2ª SATec', '↳ 3ª SATec', '↳ 4ª SATec', '↳ Divisão Administrativa - DA'],
+            'DINTER I': ['1º GB', '2º GB', '6º GB', '7º GB', 'CAT/ZM', 'CAT/AG', '↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Planejamento de Operações - DPO', '↳ Divisão de Resposta Operacional - DRD'],
+            '1º GB': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/1º GB (Vitória de Santo Antão)', '↳ 2ª SB/1º GB (Palmares)', '↳ 3ª SB/1º GB (Gravatá)', '↳ Divisão Administrativa - DA'],
+            '2º GB': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DivOP', '↳ 1ª SB/2º GB (Caruaru)', '↳ 2ª SB/2º GB (Bezerros)', '↳ 3ª SB/2º GB (Belo Jardim)', '↳ 4ª SB/2º GB (Bonito)', '↳ 5ª SB/2º GB (Toritama)', '↳ 6ª SB/2º GB (Santa Cruz do Capibaribe)', '↳ 7ª SB/2º GB (Mergulho ZM e AG)', '↳ Divisão Administrativa - DA'],
+            '6º GB': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/6º GB (Garanhuns)', '↳ 2ª SB/6º GB (Bom Conselho)', '↳ Divisão Administrativa - DA'],
+            '7º GB': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/7º GB (Carpina)', '↳ 2ª SB/7º GB (Goiana)', '↳ 3ª SB/7º GB (Macaparana)', '↳ 4ª SB/7º GB (Surubim)', '↳ Divisão Administrativa - DA'],
+            'CAT/ZM': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', '↳ Divisão de Serviços Técnicos - DSTec', '↳ 1ª SATec (Carpina)', '↳ 2ª SATec (Goiana)', '↳ 3ª SATec (Vitória de Santo Antão)', '↳ Divisão Administrativa - DA'],
+            'CAT/AG': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', '↳ Divisão de Serviços Técnicos - DSTec', '↳ 1ª SATec (Caruaru)', '↳ 2ª SATec (Garanhuns)', '↳ 3ª SATec (Belo Jardim)', '↳ 4ª SATec (Toritama)', '↳ Divisão Administrativa - DA'],
+            'DINTER II': ['3º GB', '4º GB', '5º GB', '9º GB', 'CAT/SE', '↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Planejamento de Operações - DPO', '↳ Divisão de Resposta Operacional - DRD'],
+            '3º GB': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/3º GB (Serra Talhada)', '↳ 2ª SB/3º GB (Afogados da Ingazeira)', '↳ 3ª SB/3º GB (São José do Egito)', '↳ 4ª SB/3º GB (Petrolândia)', '↳ Divisão Administrativa - DA'],
+            '4º GB': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/4º GB (Petrolina)', '↳ 2ª SB/4º GB (Santa Maria da Boa Vista)', '↳ 3ª SB/4º GB (Mergulho SE)', '↳ Divisão Administrativa - DA'],
+            '5º GB': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/5º GB (Salgueiro)', '↳ 2ª SB/5º GB (São José Belmonte)', '↳ 3ª SB/5º GB (Araripina)', '↳ 4ª SB/5º GB (Ouricuri)', '↳ Divisão Administrativa - DA'],
+            '9º GB': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', 'Divisão de Operações - DO', '↳ 1ª SB/9º GB (Arcoverde)', '↳ 2ª SB/9º GB (Pesqueira)', '↳ 3ª SB/9º GB (Custódia)', '↳ Divisão Administrativa - DA'],
+            'CAT/SE': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', '↳ Divisão de Planejamento e Serviços Técnicos', '↳ 1ª SATec (Salgueiro)', '↳ 2ª SATec (Petrolina)', '↳ 3ª SATec (Serra Talhada)', '↳ 4ª SATec (Arcoverde)', '↳ 5ª SATec (Araripina)', '↳ Divisão Administrativa - DA'],
+            'DGA': ['DGP', 'DVP', 'DJD', 'DF', 'DAS', 'DTIC', 'DLOG', 'DEIP', 'DPLAG', '↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm'],
+            'DPLAG': ['↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Planejamento e Gestão Estratégica - DPGE', '↳ Divisão Projetos e Captação de Recursos - DPCR', '↳ Divisão de Convênios e Acordo de Cooperação - DCAC', '↳ Divisão de Tributação e Orçamento - DTO'],
+            'DGP': ['↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Ativos - DA', '↳ Divisão de Direitos - DDIr', '↳ Divisão de Movimentação e Controle de Pessoal - DMCP', '↳ Divisão de Normatização e Programas - DNP'],
+            'DAS': ['↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Programas Sociais - DPS', '↳ Divisão Administrativa'],
+            'DJD': ['↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Planejamento de Justiça e Disciplina - DPJD', '↳ Divisão de Justiça e Disciplina - Div. JD'],
+            'DVP': ['↳ Diretoria', '↳ Divisão de Transferência para Reserva e Reformas - DTRR', '↳ Divisão de Inativos - DI', '↳ Divisão de Direitos'],
+            'DTIC': ['↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Projetos - DP', '↳ Divisão de Coordenação Técnica - DCT'],
+            'DLOG': ['CMAN', 'CINT', 'CEAO', '↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Planejamento Logístico - DPL', '↳ Divisão de Gestão de Contratos - DGC', '↳ Divisão de Gestão de Patrimônio - DGPat', '↳ Divisão de Gestão de Transporte e Combustível - DGTC', '↳ Divisão de Controle de Inquéritos Administrativos e Logísticos - DCIAL', '↳ Divisão de Compras e Serviços - DCS'],
+            'DF': ['↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Planejamento e Administração Financeira e Orçamentária', '↳ Divisão de Prestação de Contas', '↳ Divisão de Tesouraria Geral', '↳ Divisão de Controle Orçamentário e Financeiro'],
+            'DEIP': ['ABMG', 'CEFD', '↳ Diretoria', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Ensino e Pesquisa - DEP', '↳ Divisão de Admissão, Credenciamento e Fiscalização - DACF'],
+            'CMAN': ['↳ Chefia', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Gestão de Manutenção - DGM', '↳ Divisão Administrativa - DA'],
+            'CINT': ['↳ Chefia', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Gestão de Suprimentos - DGS'],
+            'CEAO': ['↳ Chefia', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Divisão de Projetos - DP', '↳ Divisão Administrativa - DA'],
+            'ABMG': ['↳ Comando', '↳ Subcomando', '↳ Secretaria e Apoio do Comando - SAC', '↳ Divisão de Ensino - DE', '↳ Corpo de Alunos Oficiais', '↳ Corpo de Alunos Praças', '↳ Divisão Administrativa'],
+            'CEFD': ['↳ Chefia', '↳ Secretaria e Apoio Administrativo - SAAdm', '↳ Seção de Treinamento Físico'],
         };
 
         const TABLE_HEAD_PADRAO = `<tr><th class="p-3">Seção/Divisão/Grupamento/Centro</th><th class="p-3">Efetivo</th><th class="p-3">Viaturas</th><th class="p-3">Materiais</th><th class="p-3">Finanças</th><th class="p-3">Ações Específicas</th></tr>`;
@@ -827,11 +820,22 @@
                     }
 
                     const isLink = !!oficialData[sub] && sub !== setor;
+                    // Todas as linhas internas (Comando, Subcomando, SAC, Divisão de Operações, SBs,
+                    // Divisão Administrativa etc.) têm agora a mesma hierarquia: mesma seta "↳" e
+                    // abrem/fecham juntas com o toggle principal do setor.
+                    const isIndentado = !isLink && sub.trim().startsWith('↳');
+                    const nomeExibido = isIndentado ? sub.replace(/^↳\s*/, '') : sub;
+
                     const nomeCell = isLink
                         ? `<span onclick="openPanel('${sub.replace(/'/g, "\\'")}')" class="cursor-pointer text-amber-400 hover:text-amber-300 hover:underline underline-offset-2 inline-flex items-center gap-1.5">${sub} <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>`
-                        : `<span class="text-amber-400">${sub}</span>`;
+                        : `<span class="text-amber-400 inline-flex items-center gap-2"><span class="text-[13px] text-amber-500/80">↳</span>${nomeExibido}</span>`;
 
-                    const linhaHtml = `<tr class="hover:bg-gray-800/50${isLink ? '' : ' internos-row hidden'}">
+                    let trClasses = 'hover:bg-gray-800/50';
+                    if (!isLink) {
+                        trClasses += ' internos-row hidden';
+                    }
+
+                    const linhaHtml = `<tr class="${trClasses}">
                         <td class="p-3 font-bold">${nomeCell}</td>
                         <td class="p-3 text-gray-300">${militarLabel(linha.efetivo)}</td>
                         <td class="p-3 text-gray-300">${linha.viaturas} Unidades</td>
