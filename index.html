@@ -87,7 +87,7 @@
             </h1>
             <p class="text-xs text-gray-400 mt-1.5 flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                Painel Interativo de Gestão Estratégica e Telemetria de OMEs
+                Painel Interativo de Gestão Estratégica do CBMPE
             </p>
         </div>
         <div class="relative z-10 flex items-center gap-3">
@@ -388,12 +388,6 @@
             <div class="relative z-10">
                 <h2 id="panel-title" class="text-2xl font-black bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent uppercase tracking-wide">DETALHAMENTO SETORIAL</h2>
                 <p id="panel-officer" class="text-sm text-gray-300 font-semibold mt-1 flex items-center gap-2"><i class="fa-solid fa-user-shield text-amber-500"></i> RESPONSÁVEL: -</p>
-            </div>
-            <div class="relative z-10 bg-gray-800/80 px-4 py-2 rounded-lg border border-gray-700 text-right">
-                <span class="text-xs text-gray-400 block">Status da Unidade</span>
-                <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5 justify-end">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> 100% Operacional
-                </span>
             </div>
         </div>
 
@@ -751,6 +745,13 @@
         let subpageIndicadorAtual = null;
         let subpageOcultarBotaoAtual = false;
 
+        function toggleInternos(el) {
+            const icon = el.querySelector('.toggle-icon');
+            const rows = document.querySelectorAll('#table-body .internos-row');
+            rows.forEach(r => r.classList.toggle('hidden'));
+            if (icon) icon.classList.toggle('rotate-90');
+        }
+
         function openPanel(setor, isBack) {
             // Empilha o painel atual no histórico, exceto quando estamos navegando "para trás"
             if (!isBack && currentPanel && currentPanel !== setor && !document.getElementById('panel-view').classList.contains('hidden')) {
@@ -803,7 +804,10 @@
                 const distAcoes = distribute(ownVals.acoes, itensInternos.length);
 
                 let idxInterno = 0;
-                let html = "";
+                let htmlSubordinadas = "";
+                let htmlInternos = "";
+                let qtdInternos = 0;
+                let somaEfetivo = 0, somaViaturas = 0, somaFinancas = 0, somaAcoes = 0;
                 subSetoresMap[setor].forEach((sub) => {
                     const ehCaixaPropria = filhos.includes(sub);
                     let linha;
@@ -827,7 +831,7 @@
                         ? `<span onclick="openPanel('${sub.replace(/'/g, "\\'")}')" class="cursor-pointer text-amber-400 hover:text-amber-300 hover:underline underline-offset-2 inline-flex items-center gap-1.5">${sub} <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>`
                         : `<span class="text-amber-400">${sub}</span>`;
 
-                    html += `<tr class="hover:bg-gray-800/50">
+                    const linhaHtml = `<tr class="hover:bg-gray-800/50${isLink ? '' : ' internos-row hidden'}">
                         <td class="p-3 font-bold">${nomeCell}</td>
                         <td class="p-3 text-gray-300">${militarLabel(linha.efetivo)}</td>
                         <td class="p-3 text-gray-300">${linha.viaturas} Unidades</td>
@@ -835,8 +839,34 @@
                         <td class="p-3 text-emerald-400 font-semibold">R$ ${formatBRL(linha.financas)},00 Executado (${linha.financaPct}%)</td>
                         <td class="p-3 text-amber-400">${linha.acoes} Atividades</td>
                     </tr>`;
+
+                    if (isLink) {
+                        htmlSubordinadas += linhaHtml;
+                    } else {
+                        htmlInternos += linhaHtml;
+                        qtdInternos++;
+                        somaEfetivo += linha.efetivo;
+                        somaViaturas += linha.viaturas;
+                        somaFinancas += linha.financas;
+                        somaAcoes += linha.acoes;
+                    }
                 });
-                tbody.innerHTML = html;
+
+                let htmlToggle = "";
+                if (qtdInternos > 0) {
+                    htmlToggle = `<tr class="cursor-pointer hover:bg-gray-800/70 border-t border-gray-700 bg-gray-900/60" onclick="toggleInternos(this)">
+                        <td class="p-3 font-bold text-amber-400 select-none">
+                            <i class="fa-solid fa-caret-right toggle-icon mr-2 transition-transform"></i> ${setor}
+                        </td>
+                        <td class="p-3 text-gray-300">${militarLabel(somaEfetivo)}</td>
+                        <td class="p-3 text-gray-300">${somaViaturas} Unidades</td>
+                        <td class="p-3 text-gray-300 font-semibold">${ownVals.materiaisPct}% Disponível</td>
+                        <td class="p-3 text-emerald-400 font-semibold">R$ ${formatBRL(somaFinancas)},00 Executado (${ownVals.financaPct}%)</td>
+                        <td class="p-3 text-amber-400">${somaAcoes} Atividades</td>
+                    </tr>`;
+                }
+
+                tbody.innerHTML = htmlSubordinadas + htmlToggle + htmlInternos;
             } else {
                 thead.innerHTML = TABLE_HEAD_PADRAO;
                 let matSpec = setor === 'CEAO' ? 'Materiais de engenharia e obras' : 'Sistemas Corporativos / Equipamentos';
